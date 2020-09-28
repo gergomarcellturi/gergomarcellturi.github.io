@@ -493,11 +493,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "evaluateExpression",
-        value: function evaluateExpression() {
+        value: function evaluateExpression(fromHistory) {
           this.corrigateInput();
           this.resultString = "= ".concat(mathjs__WEBPACK_IMPORTED_MODULE_2__["parse"](this.inputString).evaluate());
           this.cacheService.addCalcHistory(this.inputString);
-          this.addToCalcHistory(this.inputString);
+
+          if (!fromHistory) {
+            this.addToCalcHistory(this.inputString);
+          }
         }
       }, {
         key: "deleteChar",
@@ -555,7 +558,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "historyEventHandler",
         value: function historyEventHandler(history) {
           this.inputString = history.expression;
-          this.evaluateExpression();
+          this.evaluateExpression(true);
         }
       }, {
         key: "changeLanguage",

@@ -269,11 +269,13 @@ class CalculatorComponent {
     input(char) {
         this.inputString += this.isOperator(char) && this.isOperator(this.inputString[this.inputString.length - 1]) ? '' : char;
     }
-    evaluateExpression() {
+    evaluateExpression(fromHistory) {
         this.corrigateInput();
         this.resultString = `= ${mathjs__WEBPACK_IMPORTED_MODULE_2__["parse"](this.inputString).evaluate()}`;
         this.cacheService.addCalcHistory(this.inputString);
-        this.addToCalcHistory(this.inputString);
+        if (!fromHistory) {
+            this.addToCalcHistory(this.inputString);
+        }
     }
     deleteChar() {
         this.inputString = this.inputString.slice(0, -1);
@@ -307,7 +309,7 @@ class CalculatorComponent {
     }
     historyEventHandler(history) {
         this.inputString = history.expression;
-        this.evaluateExpression();
+        this.evaluateExpression(true);
     }
     changeLanguage(lang) {
         this.translateService.use(lang);
