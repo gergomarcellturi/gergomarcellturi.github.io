@@ -1,5 +1,14 @@
 {
-  "WELCOME": "Üdvözöljük!",
-  "CALCULATOR_WORKS": "A számológép működik!",
-  "COSMIC_CALCULATOR": "Kozmikus Számológép"
+  "HOME": "Főoldal",
+  "PROFILE": {
+    "TITLE": "Profil szerkesztése",
+    "DISPLAY_NAME": "Megjelített név",
+    "EMAIL": "Email",
+    "SUCCESS": "Sikeres módosítás"
+  },
+  "BUTTON": {
+    "CANCEL": "Mégsem",
+    "SAVE": "Mentés",
+    "CLOSE": "Bezár"
+  }
 }
